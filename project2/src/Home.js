@@ -15,11 +15,19 @@ export default class Home extends React.Component {
   render(){
     return(
     <div className="home">
-    <button> <Link to={"/home"}>Home</Link></button>
-    <button> <Link to={""}>Difficulty</Link></button>
-    <button> <Link to={"/rule"}>Rule</Link></button>
     <div>
-    <p>Let's get started!</p>
+      <button> <Link to={"/home"}>Home</Link></button>
+      <button> <Link to={""}>Difficulty</Link></button>
+      <button> <Link to={"/rule"}>Rule</Link></button>
+    </div>
+    <div>
+      <p>Press Difficulty button for level options.</p>
+    </div>
+    <div>
+      <p>Press Rule button for game rules.</p>
+    </div>
+    <div>
+      <p>Let's get started!</p>
     </div> 
   </div>  
     )

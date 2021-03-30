@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {useSelector } from 'react-redux'
 import { useAlert } from 'react-alert';
+import "./Reducer"
 
 // export default combineReducers({
 //     toComplete:ToCompleteReducer,
@@ -19,39 +20,6 @@ export default function mainReducer(
     gameMode:1,
     },
     action) {
-        // console.log(state.cardToRemove, action)
-        // console.log(cardToRemove)
-        // let toComplete = state.toComplete
-        // let completed = state.completed
-        // let DIMENSIONS=state.dimensions
-        // let STATERANGE=state.stateRange
-        
-        // if(cardToRemove !== undefined && cardToRemove.length === 3){
-        //     if (verifyRemove(cardToRemove)){
-        //         console.log("success remove")
-        //         let newToComplete = [];
-        //         for(const card of toComplete){
-        //             if (isSameCard(card, cardToRemove[0]) || isSameCard(card, cardToRemove[1]) || isSameCard(card, cardToRemove[2])) {
-        //                 continue;
-        //             }
-        //             newToComplete.push(card);
-        //         }
-        //         toComplete = newToComplete;
-        //         completed = [...completed, ...cardToRemove]
-        //         cardToRemove = [];
-        //     }
-        //     else{
-        //         console.log("not valid remove")
-        //         cardToRemove = [];
-        //     }
-        // }
-        // else if (action.type === "START_GAME"){
-        //     toComplete = GenerateInitialCards({dimensions:DIMENSIONS, stateRange:STATERANGE})
-        //     completed = [];
-        //     cardToRemove = [];
-        // }
-    // console.log("new game mode")
-    // console.log(gameModeReducer(state, action))
     return {
         toComplete:ToCompleteReducer(state, action),
          completed:CompletedReducer(state, action),
@@ -135,7 +103,9 @@ function ToCompleteReducer(state, action){
             }
             alert("it's a valid set!")
             if(newToComplete.length === 0){
-                alert("Congratulations!")
+                <div>
+                    <p className="con">"Congratulations!"</p>
+                </div>
             }
             return newToComplete;
         }
