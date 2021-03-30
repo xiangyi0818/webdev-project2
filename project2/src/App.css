@@ -1,3 +1,5 @@
+
+
 .cards{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -19,11 +21,11 @@
   background-color:rgba(209, 74, 74, 0.986);
   border: none;
   color: white;
-  padding: 5px 30px;
+  padding: 0.9% 5%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -38,7 +40,7 @@
 .main_botton_container {
   justify-content: space-evenly;
   box-sizing: border-box;
-  width: 500px;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   padding-top: 20px;
@@ -49,7 +51,7 @@
 .second_botton_container {
   justify-content: space-evenly;
   box-sizing: border-box;
-  width: 500px;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   padding-top: 20px;
@@ -59,7 +61,7 @@
 .third_botton_container {
   justify-content: space-evenly;
   box-sizing: border-box;
-  width: 500px;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   padding-top: 20px;
@@ -69,22 +71,23 @@
 .display_container {
   justify-content: space-evenly;
   box-sizing: border-box;
-  width: 500px;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   margin: 0 auto;
-
 }
 
 .botton_container{
-  width:100%;
+  width:50%;
+  margin: auto;
 }
 
 
 .container {
-  padding: 50px;
+  margin: auto;
+  padding: auto;
+  width: 100%;
 
-  margin: 0;
 
 }

@@ -31,7 +31,7 @@ export default class Card extends React.Component {
         let dict4={0:"One",1:"Two",2:"Three"}
         // console.log(cardType)
         // console.log("./images/".concat(dict1[cardType[0]].concat("_",dict2[cardType[1]],"_",dict3[cardType[2]],"_",dict4[cardType[3]],".png")))
-        return <img src={window.location.origin +"/images/".concat(dict1[cardType[0]].concat("_",dict2[cardType[1]],"_",dict3[cardType[2]],"_",dict4[cardType[3]],".png"))} width="230" height="140"/>
+        return <img src={window.location.origin +"/images/".concat(dict1[cardType[0]].concat("_",dict2[cardType[1]],"_",dict3[cardType[2]],"_",dict4[cardType[3]],".png"))} width="100%" height="100%"/>
             // (dict1[cardType[0]].concat("_",dict2[cardType[1]],"_",dict3[cardType[2]],"_",dict4[cardType[3]],".png"))      
       }
 
