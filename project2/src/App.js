@@ -61,7 +61,15 @@ class App extends React.Component {
       this.props.dispatch({type:"TRY_REMOVE", cardToRemove:this.props.cardToRemove})
     }
     this.checkHasRemove(this.props.toComplete)
+    if(this.props.toComplete.length === 0){
+      return(
+      <div>
+        <p>Pleaase choose a difficulty level</p>
+      </div>
+      )
+    }
   }
+  
 
 
   render(){

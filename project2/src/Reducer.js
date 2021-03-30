@@ -87,8 +87,11 @@ let dimensionsReducer = (state, action) => {
     if  (action.type === "EASY") {
         return 3
     }
-    else {
+    else if (action.type === "MEDIUM" || action.type === "HARD") {
         return 4
+    }
+    else {
+        return state.dimensions
     }
 }
 
@@ -131,6 +134,9 @@ function ToCompleteReducer(state, action){
                 newToComplete.push(card);
             }
             alert("it's a valid set!")
+            if(newToComplete.length === 0){
+                alert("Congratulations!")
+            }
             return newToComplete;
         }
         else{
