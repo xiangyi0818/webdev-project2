@@ -3,7 +3,6 @@
     padding: 5%;
     text-align:center;
     vertical-align: middle;
-    /* background-image:url('./images/Diamond_Purple_GrayedOut_One.png'); */
     background-repeat: no-repeat;
     border-radius: 5px;
 
@@ -17,5 +16,5 @@
 
 
 .Card:hover{
-    background-color:rgb(224, 132, 26);
+    background-color:rgb(243, 186, 116);
 }

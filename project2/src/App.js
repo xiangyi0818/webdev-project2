@@ -75,7 +75,7 @@ class App extends React.Component {
     <div className="button_container">
       <div className="main_botton_container">
         <button className="botton"> <Link to={"/home"}><h2>Home</h2></Link></button>
-        <button className="botton"> <Link to={""}><h2>Difficulty</h2></Link></button>
+        <button className="botton"> <Link to={""}><h2>Play</h2></Link></button>
         <button className="botton"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
       </div>
       
@@ -88,7 +88,9 @@ class App extends React.Component {
       
       <div className="third_botton_container">
       <button className="botton" onClick={()=> {this.props.dispatch({type:"ADD_THREE_VIEW"})}}><h3>Add Three Cards</h3></button>
+      <button className="botton" onClick={()=> {this.props.dispatch({type:"START_GAME"})}}><h3>Reset</h3></button>
       </div>
+
 
     </div>
   
