@@ -2,14 +2,88 @@
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:5px;
+  
+
 
 }
 .display{
   display:grid;
   grid-gap:5px;
+  padding-top: 20px;
+  
 }
 
-.button{
- 
+
+
+.botton {
+  background-color:rgba(209, 74, 74, 0.986);
+  border: none;
+  color: white;
+  padding: 5px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  
 }
 
+.botton:hover {
+  background-color: rgb(251, 208, 199) ;
+}
+
+.main_botton_container {
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+
+.second_botton_container {
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.third_botton_container {
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.display_container {
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin: 0 auto;
+
+}
+
+.botton_container{
+  width:100%;
+}
+
+
+.container {
+  padding: 50px;
+  margin: 0;
+
+}

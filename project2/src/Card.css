@@ -1,16 +1,20 @@
 
 .Card{
-    height:150px;
-    width:250px;
+    height:155px;
+    width:240px;
     text-align:center;
+    justify-content: center; 
+    align-items: center;
     /* background-image:url('./images/Diamond_Purple_GrayedOut_One.png'); */
     background-repeat: no-repeat;
-    background-size:auto;
+
 
 }
 .active{
     background-color:rgb(243, 75, 13);
   }
+
+
 .Card:hover{
-    background-color:rgb(61, 11, 226);
+    background-color:rgb(231, 169, 53);
 }
