@@ -72,34 +72,47 @@ class App extends React.Component {
 
     <div className="container">
 
-    <div className="button_container">
-      <div className="main_botton_container">
-        <button className="botton"> <Link to={"/home"}><h2>Home</h2></Link></button>
-        <button className="botton"> <Link to={""}><h2>Difficulty</h2></Link></button>
-        <button className="botton"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
+    <div className="main-leftsidebar">
+      <div className="button-container">
+        <div className="main-button-container">
+          <button className="button1"> <Link to={"/home"}><h2>Home</h2></Link></button>
+          <button className="button1"> <Link to={""}><h2>Difficulty</h2></Link></button>
+          <button className="button1"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
+        </div>
       </div>
+    </div>
       
-      <div className="second_botton_container">
+      <div className="main-header">
+        <div className="second-button-container">
 
-        <button className="botton" onClick={()=> {this.props.dispatch({type:"EASY"}); this.props.dispatch({type:"START_GAME"});}}><h3>Easy</h3></button>
-        <button className="botton" onClick={()=> {this.props.dispatch({type:"MEDIUM"}); this.props.dispatch({type:"START_GAME"});}}><h3>Medium</h3></button>
-        <button className="botton" onClick={()=> {this.props.dispatch({type:"HARD"}); this.props.dispatch({type:"START_GAME"});}}><h3>Hard</h3></button>
-      </div>
-      
-      <div className="third_botton_container">
-      <button className="botton" onClick={()=> {this.props.dispatch({type:"ADD_THREE_VIEW"})}}><h3>Add Three Cards</h3></button>
+          <button className="button2" onClick={()=> {this.props.dispatch({type:"EASY"}); this.props.dispatch({type:"START_GAME"});}}><h3>Easy</h3></button>
+          <button className="button2" onClick={()=> {this.props.dispatch({type:"MEDIUM"}); this.props.dispatch({type:"START_GAME"});}}><h3>Medium</h3></button>
+          <button className="button2" onClick={()=> {this.props.dispatch({type:"HARD"}); this.props.dispatch({type:"START_GAME"});}}><h3>Hard</h3></button>
+        </div>
       </div>
 
+    <div className="main-footer">
+      <div className="third-button-container">
+        <button className="button" onClick={()=> {this.props.dispatch({type:"ADD_THREE_VIEW"})}}><h3>Add Three Cards</h3></button>
+      </div>
+    </div> 
+   
+
+
+    <div className="main-content ">
+      <div className="display-container">
+        <div className="display">
+
+          <div className="cards">
+            {this.updateView()}
+            {this.props.toComplete.slice(0,this.props.numView).map((value, index) => <Card className="card" type={value} key={index} addCard={this.addCard} active={isInToRemove(value,this.props.cardToRemove)}/>)}
+          </div>
+        </div>
+      </div>
     </div>
-  
-    <div className="display_container">
-      <div className="display">
-    </div>
-    <div className="cards">
-      {this.updateView()}
-      {this.props.toComplete.slice(0,this.props.numView).map((value, index) => <Card className="card" type={value} key={index} addCard={this.addCard} active={isInToRemove(value,this.props.cardToRemove)}/>)}
-    </div>
-    </div>
+
+
+
     </div>
     )
   }
