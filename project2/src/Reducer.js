@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import {useSelector } from 'react-redux'
-
+import { useAlert } from 'react-alert';
 
 // export default combineReducers({
 //     toComplete:ToCompleteReducer,
@@ -15,48 +15,106 @@ export default function mainReducer(
     stateRange:3,
     numView:12,
     cardToRemove:[],
+    hasRemove:1,
+    gameMode:1,
     },
     action) {
         // console.log(state.cardToRemove, action)
-        let cardToRemove = CardToRemoveReducer(state, action);
         // console.log(cardToRemove)
-        let toComplete = state.toComplete
-        let completed = state.completed
-        let DIMENSIONS=state.dimensions
-        let STATERANGE=state.stateRange
+        // let toComplete = state.toComplete
+        // let completed = state.completed
+        // let DIMENSIONS=state.dimensions
+        // let STATERANGE=state.stateRange
         
-        if(cardToRemove !== undefined && cardToRemove.length === 3){
-            if (verifyRemove(cardToRemove)){
-                console.log("success remove")
-                let newToComplete = [];
-                for(const card of toComplete){
-                    if (isSameCard(card, cardToRemove[0]) || isSameCard(card, cardToRemove[1]) || isSameCard(card, cardToRemove[2])) {
-                        continue;
-                    }
-                    newToComplete.push(card);
-                }
-                toComplete = newToComplete;
-                completed = [...completed, ...cardToRemove]
-                cardToRemove = [];
-            }
-            else{
-                console.log("not valid remove")
-                cardToRemove = [];
-            }
-        }
-        else if (action.type === "START_GAME"){
-            toComplete = GenerateInitialCards({dimensions:DIMENSIONS, stateRange:STATERANGE})
-            completed = [];
-            cardToRemove = [];
-        }
+        // if(cardToRemove !== undefined && cardToRemove.length === 3){
+        //     if (verifyRemove(cardToRemove)){
+        //         console.log("success remove")
+        //         let newToComplete = [];
+        //         for(const card of toComplete){
+        //             if (isSameCard(card, cardToRemove[0]) || isSameCard(card, cardToRemove[1]) || isSameCard(card, cardToRemove[2])) {
+        //                 continue;
+        //             }
+        //             newToComplete.push(card);
+        //         }
+        //         toComplete = newToComplete;
+        //         completed = [...completed, ...cardToRemove]
+        //         cardToRemove = [];
+        //     }
+        //     else{
+        //         console.log("not valid remove")
+        //         cardToRemove = [];
+        //     }
+        // }
+        // else if (action.type === "START_GAME"){
+        //     toComplete = GenerateInitialCards({dimensions:DIMENSIONS, stateRange:STATERANGE})
+        //     completed = [];
+        //     cardToRemove = [];
+        // }
+    // console.log("new game mode")
+    // console.log(gameModeReducer(state, action))
     return {
-        toComplete:toComplete,
-         completed:completed,
-         dimensions:state.dimensions,
+        toComplete:ToCompleteReducer(state, action),
+         completed:CompletedReducer(state, action),
+         dimensions:dimensionsReducer(state, action),
          stateRange:state.stateRange,
-         numView:state.numView,
-         cardToRemove:cardToRemove,
+         numView:numViewReducer(state, action),
+         cardToRemove:CardToRemoveReducer(state, action),
+         hasRemove:HasRemoveReducer(state, action),
+         gameMode:gameModeReducer(state, action),
         }
+}
+
+let HasRemoveReducer = (state, action) => {
+    if (action.type === "FIND_VALID") {
+        return 1
+    }
+    else if (action.type === "NO_VALID") {
+        return 2
+    }
+    else if (action.type === "ADD_THREE_VIEW") {
+        return 0
+    }
+    else if (action.type === "TRY_REMOVE" && verifyRemove(action.cardToRemove)) {
+        return 0
+    }
+    else if (action.type === "START_GAME") {
+        return 0
+    }
+    return state.hasRemove
+}
+
+let dimensionsReducer = (state, action) => {
+    if  (action.type === "EASY") {
+        return 3
+    }
+    else {
+        return 4
+    }
+}
+
+let numViewReducer = (state, action)=> {
+    if (action.type === "ADD_THREE_VIEW") {
+        return state.numView + 3
+    }
+    else if (action.type === "START_GAME") {
+        return 12
+    }
+    return state.numView
+}
+
+let gameModeReducer = (state, action) => {
+    if (action.type === "EASY") {
+        console.log("change to easy")
+        return 0
+    }
+    else if (action.type === "MEDIUM") {
+        console.log("change to medium")
+        return 1
+    }
+    else if (action.type === "HARD") {
+        return 2
+    }
+    return state.gameMode
 }
 
 function ToCompleteReducer(state, action){
@@ -72,9 +130,11 @@ function ToCompleteReducer(state, action){
                 }
                 newToComplete.push(card);
             }
+            alert("it's a valid set!")
             return newToComplete;
         }
         else{
+            alert("it's not a valid set!")
             return toComplete;
         }
     }
@@ -117,6 +177,12 @@ const CardToRemoveReducer=(state, action) => {
         let newCardToRemove = [...cardToRemove, action.card]
         return newCardToRemove
     }
+    else if(action.type === "TRY_REMOVE"){
+        return []
+    }
+    else if(action.type === "START_GAME"){
+        return []
+    }
     else{
         // console.log("not add new")
         return cardToRemove;
@@ -139,21 +205,32 @@ const GenerateInitialCards=(props) => {
       initialState = temp;
       i++;
     }
+    while (i < 4) {
+        let temp = [];
+        for (let j=0;j<1;j++) {
+            initialState.forEach((item, index)=> temp.push([...item, j]))
+        }
+        initialState = temp;
+        i++;
+      }
     shuffleArray(initialState)
     return initialState
   }
 
 export function verifyRemove(cardToRemove) {
-    console.log("check card to remove")
-    console.log(cardToRemove)
+    // console.log(cardToRemove)
+    // console.log(cardToRemove == undefined || cardToRemove.length !== 3)
+    if (cardToRemove === undefined || cardToRemove.length !== 3) {
+        return false
+    }
     for (let i=0;i<cardToRemove[0].length;i++) {
         let map = new Map();
         for(const card of cardToRemove) {
             map.set(card[i], 1);
         }
-        console.log(map)
+        // console.log(map)
         if (map.size === 2) {
-            console.log("cannot remove")
+            // console.log("cannot remove")
             return false;
         }
     }
@@ -163,10 +240,10 @@ export function verifyRemove(cardToRemove) {
 export const isSameCard = (card1, card2) => {
     // let card1 = props.card1
     // let card2 = props.card2
-    console.log("check same card")
-    console.log([card1, card2, card1.length])
+    // console.log("check same card")
+    // console.log([card1, card2, card1.length])
     for(let i=0;i<card1.length;i++){
-        console.log([card1[i], card2[i]])
+        // console.log([card1[i], card2[i]])
         if (card1[i] !== card2[i]) {
             return false;
         }
@@ -182,7 +259,7 @@ function shuffleArray(array) {
 }
 
 export function isInToRemove(card, cardToRemove){
-    console.log(card, cardToRemove)
+    // console.log(card, cardToRemove)
     for (let removeCard of cardToRemove){
         if(isSameCard(card,removeCard)){
             return true
