@@ -21,7 +21,7 @@ export default class Rule extends React.Component {
           <div className="main-button-container">
             <button className="grab" className="button1"> <Link to={"/home"}><h2>Home</h2></Link></button>
             <button className="grab" className="button1"> <Link to={"/"}><h2>Difficulty</h2></Link></button>
-            <button className="grab" className="button1" className="active"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
+            <button className="grab" className="button1" className="active-button"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
           </div>
         </div>
       </div>

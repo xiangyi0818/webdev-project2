@@ -13,8 +13,8 @@ export default class Card extends React.Component {
         // console.log(testStr)
         // console.log("./images/".concat(mapCardToName(this.props.type)))
         return(
-            <div className= {this.props.active? "Card active":"Card"}
-            style={{border:"1.5px solid grey"}} 
+            <div className= {this.props.active? "Card activeCard":"Card"}
+            style={{border:"1px solid grey"}} 
             onClick={() => this.props.addCard(this.props.type)} active={true}>
                 {mapCardToName(this.props.type)}
             {/* <img src={require("./images/".concat(mapCardToName(this.props.type)))} /> */}

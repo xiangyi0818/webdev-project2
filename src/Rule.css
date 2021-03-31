@@ -81,11 +81,8 @@
     background-color: rgb(251, 208, 199) ;
 }
 
-.button.active {
-    color:indianred;
-}
 
-.active {
+.active-button {
     border: none;
     color: white;
     padding: 5%;
@@ -116,10 +113,6 @@
     color:indianred;
 }
 
-.active {
-    background-color: indianred;
-  
-}
   
 
 @media screen and (max-width:700px) {

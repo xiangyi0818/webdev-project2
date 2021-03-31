@@ -21,7 +21,7 @@
 .active {
   border: none;
   color: white;
-  padding: 5%;
+  padding: 1%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -30,9 +30,8 @@
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 8px;
-  width: 100%;
+  width: 25%;
   background-color: rgb(230, 120, 31);
-
 }
 
 
@@ -55,6 +54,23 @@
 .button:hover {
   background-color: rgb(251, 208, 199) ;
 }
+
+.active-button {
+  border: none;
+  color: white;
+  padding: 1%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 25%;
+  background-color: rgb(230, 120, 31);
+}
+
 
 .button1 {
   border: none;
@@ -97,6 +113,8 @@
 .button2:hover {
   background-color: rgb(251, 208, 199) ;
 }
+
+
 
 .main-button-container {
   justify-content: space-evenly;

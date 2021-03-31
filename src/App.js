@@ -76,7 +76,31 @@ class App extends React.Component {
   }
 
 
+  
+
   render(){
+
+    let easyButton = "button2";
+    if(this.props.gameMode===0) {
+      easyButton= "active";
+    } 
+
+      
+
+    let mediumButton = "button2";
+    if(this.props.gameMode===1) {
+      mediumButton="active";
+    }
+
+    let HardButton = "button2";
+    if(this.props.gameMode===2) {
+      HardButton ="active";
+    }
+
+
+    
+
+
     return(
     <div className="container">
 
@@ -84,7 +108,7 @@ class App extends React.Component {
       <div className="button-container">
         <div className="main-button-container">
           <button className="grab" className="button1"> <Link to={"/home"}><h2>Home</h2></Link></button>
-          <button className="grab" className="button1" className="active"> <Link to={""}><h2>Difficulty</h2></Link></button>
+          <button className="grab" className="button1" className="active-button"> <Link to={""}><h2>Difficulty</h2></Link></button>
           <button className="grab" className="button1"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
         </div>
       </div>
@@ -93,9 +117,9 @@ class App extends React.Component {
       <div className="main-header">
         <div className="second-button-container">
 
-          <button className="grab" className="button2" onClick={()=> {this.props.dispatch({type:"EASY"}); this.props.dispatch({type:"START_GAME"});}}><h3>Easy</h3></button>
-          <button className="grab" className="button2" onClick={()=> {this.props.dispatch({type:"MEDIUM"}); this.props.dispatch({type:"START_GAME"});}}><h3>Medium</h3></button>
-          <button className="grab" className="button2" onClick={()=> {this.props.dispatch({type:"HARD"}); this.props.dispatch({type:"START_GAME"});}}><h3>Hard</h3></button>
+          <button className="grab" className={easyButton} onClick={()=> {this.props.dispatch({type:"EASY"}); this.props.dispatch({type:"START_GAME"});}}><h3>Easy</h3></button>
+          <button className="grab" className={mediumButton} onClick={()=> {this.props.dispatch({type:"MEDIUM"}); this.props.dispatch({type:"START_GAME"});}}><h3>Medium</h3></button>
+          <button className="grab" className={HardButton} onClick={()=> {this.props.dispatch({type:"HARD"}); this.props.dispatch({type:"START_GAME"});}}><h3>Hard</h3></button>
         </div>
       </div>
 
