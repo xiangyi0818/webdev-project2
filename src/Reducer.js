@@ -103,9 +103,9 @@ function ToCompleteReducer(state, action){
             }
             alert("it's a valid set!")
             if(newToComplete.length === 0){
-                <div>
-                    <p className="con">"Congratulations!"</p>
-                </div>
+                
+                alert("Congratulations!")
+            
             }
             return newToComplete;
         }
