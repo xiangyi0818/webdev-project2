@@ -75,11 +75,11 @@ let numViewReducer = (state, action)=> {
 
 let gameModeReducer = (state, action) => {
     if (action.type === "EASY") {
-        console.log("change to easy")
+        // console.log("change to easy")
         return 0
     }
     else if (action.type === "MEDIUM") {
-        console.log("change to medium")
+        // console.log("change to medium")
         return 1
     }
     else if (action.type === "HARD") {

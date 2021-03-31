@@ -37,9 +37,9 @@ class App extends React.Component {
           // console.log(verifyRemove(cardToTest))
           if (cardToTest !== undefined && cardToTest.length === 3 && cardToTest[2] !== undefined) {
             if (verifyRemove(cardToTest)) {
-              console.log([i,j,k])
+              // console.log([i,j,k])
               this.props.dispatch({type:"FIND_VALID"})
-              console.log("Has Valid Remove")
+              // console.log("Has Valid Remove")
               return true
             }
           }
@@ -47,7 +47,7 @@ class App extends React.Component {
       }
     }
     this.props.dispatch({type:"NO_VALID"})
-    console.log("No Valid Remove")
+    // console.log("No Valid Remove")
     
     if (this.props.numView < 81 && this.props.gameMode === 1) {
       this.props.dispatch({type:"ADD_THREE_VIEW"})
@@ -57,7 +57,7 @@ class App extends React.Component {
 
   updateView = ()=>{
     // console.log(this.props.hasRemove)
-    console.log("calling update view")
+    // console.log("calling update view")
     if(this.props.cardToRemove !== undefined && this.props.cardToRemove.length === 3){
       this.props.dispatch({type:"TRY_REMOVE", cardToRemove:this.props.cardToRemove})
     }
