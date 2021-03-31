@@ -20,6 +20,8 @@ export default function mainReducer(
     gameMode:1,
     },
     action) {
+        // console.log("reduce result")
+        // console.log(CardToRemoveReducer(state, action))
     return {
         toComplete:ToCompleteReducer(state, action),
          completed:CompletedReducer(state, action),
@@ -101,16 +103,12 @@ function ToCompleteReducer(state, action){
                 }
                 newToComplete.push(card);
             }
-            alert("it's a valid set!")
             if(newToComplete.length === 0){
-                <div>
-                    <p className="con">"Congratulations!"</p>
-                </div>
+                alert("Congratulations!")
             }
             return newToComplete;
         }
         else{
-            alert("it's not a valid set!")
             return toComplete;
         }
     }
@@ -143,6 +141,7 @@ function CompletedReducer(state, action){
 const CardToRemoveReducer=(state, action) => {
     const cardToRemove = state.cardToRemove;
     if (action.type === "AddCardToRemove"){
+        console.log(action.card)
         for(let card of cardToRemove){
             if(isSameCard(card, action.card)){
                 // console.log(card)
@@ -151,6 +150,16 @@ const CardToRemoveReducer=(state, action) => {
             }
         }
         let newCardToRemove = [...cardToRemove, action.card]
+        console.log("newCardToRemove")
+        console.log(newCardToRemove)
+        if(newCardToRemove.length === 3){
+            if(verifyRemove(newCardToRemove)){
+                alert("It's a valid set!")
+            }
+            else{
+                alert("It's not a valid set!")
+            }
+        }
         return newCardToRemove
     }
     else if(action.type === "TRY_REMOVE"){

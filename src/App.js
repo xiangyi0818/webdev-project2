@@ -24,7 +24,9 @@ class App extends React.Component {
     };
   }
   addCard = (cardType) => {
+    console.log(cardType)
     this.props.dispatch({type:"AddCardToRemove", card:cardType})
+    console.log(this.props.cardToRemove)
   }
   checkHasRemove=(toComplete) => {
     if (this.props.hasRemove !== 0){
@@ -58,10 +60,10 @@ class App extends React.Component {
   updateView = ()=>{
     // console.log(this.props.hasRemove)
     // console.log("calling update view")
+    this.checkHasRemove(this.props.toComplete)
     if(this.props.cardToRemove !== undefined && this.props.cardToRemove.length === 3){
       this.props.dispatch({type:"TRY_REMOVE", cardToRemove:this.props.cardToRemove})
-    }
-    this.checkHasRemove(this.props.toComplete)
+    }      
     if(this.props.toComplete.length === 0){
       return(
         <div>
