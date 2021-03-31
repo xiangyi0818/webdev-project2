@@ -75,11 +75,11 @@ let numViewReducer = (state, action)=> {
 
 let gameModeReducer = (state, action) => {
     if (action.type === "EASY") {
-        console.log("change to easy")
+        // console.log("change to easy")
         return 0
     }
     else if (action.type === "MEDIUM") {
-        console.log("change to medium")
+        // console.log("change to medium")
         return 1
     }
     else if (action.type === "HARD") {
@@ -103,9 +103,9 @@ function ToCompleteReducer(state, action){
             }
             alert("it's a valid set!")
             if(newToComplete.length === 0){
-                
-                alert("Congratulations!")
-            
+                <div>
+                    <p className="con">"Congratulations!"</p>
+                </div>
             }
             return newToComplete;
         }

@@ -5,6 +5,7 @@ import './App.css';
 import Card from "./Card";
 import {isInToRemove} from "./Reducer";
 import {Link} from 'react-router-dom';
+import './Home.css';
 
 
 export default class Home extends React.Component {
@@ -13,23 +14,44 @@ export default class Home extends React.Component {
   }
 
   render(){
-    console.log("Home")
+    // console.log("Home")
     return(
+
+    
     <div className="home">
-    <div>
-      <button> <Link to={"/home"}>Home</Link></button>
-      <button> <Link to={""}>Difficulty</Link></button>
-      <button> <Link to={"/rule"}>Rule</Link></button>
+
+    <div className="main-container">
+
+
+      <div className="main-leftsidebar">
+        <div className="button-container">
+          <div className="main-button-container">
+            <button className="grab" className="button3"> <Link to={"/home"}><h2>Home</h2></Link></button>
+            <button className="grab" className="button1"> <Link to={"/"}><h2>Difficulty</h2></Link></button>
+            <button className="grab" className="button1"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div className="main-content">
+        
+      <div>
+
+          <p className="content-text">Press <b>Difficulty button</b> for level options.</p>
+
+
+
+          <p className="content-text">Press <b>Rule button</b> for game rules.</p>
+
+          <p className="content-text"><b>Let's get started!</b></p>
+      </div>
+      </div>
+
     </div>
-    <div>
-      <p>Press Difficulty button for level options.</p>
-    </div>
-    <div>
-      <p>Press Rule button for game rules.</p>
-    </div>
-    <div>
-      <p>Let's get started!</p>
-    </div> 
+
+
   </div>  
     )
   }
