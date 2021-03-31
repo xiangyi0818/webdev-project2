@@ -231,6 +231,11 @@ cursor:grab;
     font-size: 9px;
   }
 
+  .active{
+    font-size: 9px;
+
+  }
+
   
   .button1 {
     font-size: 10px;
@@ -239,6 +244,5 @@ cursor:grab;
 
   .button {
     font-size: 9px;
-
   }
 }
