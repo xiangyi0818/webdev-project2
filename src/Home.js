@@ -38,10 +38,9 @@ export default class Home extends React.Component {
       <div className="main-content">
         
       <div>
+          <p className="content-text">Welcome to <b>SET!</b></p>
 
           <p className="content-text">Press <b>Difficulty button</b> for level options.</p>
-
-
 
           <p className="content-text">Press <b>Rule button</b> for game rules.</p>
 
