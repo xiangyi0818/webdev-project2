@@ -57,6 +57,7 @@ class App extends React.Component {
 
   updateView = ()=>{
     // console.log(this.props.hasRemove)
+    console.log("calling update view")
     if(this.props.cardToRemove !== undefined && this.props.cardToRemove.length === 3){
       this.props.dispatch({type:"TRY_REMOVE", cardToRemove:this.props.cardToRemove})
     }

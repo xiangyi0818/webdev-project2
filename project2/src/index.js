@@ -23,7 +23,7 @@ ReactDOM.render(
     <Router>
             <Switch>
                 {/* exact makes sure to render ONLY the given component, since this behaves like a switch case logic */}
-                <Route exact path={""} component={App}/>
+                <Route exact path={"/"} component={App}/>
                 <Route exact path={"/rule"} component={Rule}/>
                 <Route exact path={"/home"} component={Home}/>
                 {/* This last case is essentially the default case.  Good to have
