@@ -17,7 +17,7 @@ export default function mainReducer(
     numView:12,
     cardToRemove:[],
     hasRemove:1,
-    gameMode:1,
+    gameMode:undefined,
     },
     action) {
         // console.log("reduce result")
@@ -141,7 +141,7 @@ function CompletedReducer(state, action){
 const CardToRemoveReducer=(state, action) => {
     const cardToRemove = state.cardToRemove;
     if (action.type === "AddCardToRemove"){
-        console.log(action.card)
+        // console.log(action.card)
         for(let card of cardToRemove){
             if(isSameCard(card, action.card)){
                 // console.log(card)
@@ -150,8 +150,8 @@ const CardToRemoveReducer=(state, action) => {
             }
         }
         let newCardToRemove = [...cardToRemove, action.card]
-        console.log("newCardToRemove")
-        console.log(newCardToRemove)
+        // console.log("newCardToRemove")
+        // console.log(newCardToRemove)
         if(newCardToRemove.length === 3){
             if(verifyRemove(newCardToRemove)){
                 alert("It's a valid set!")

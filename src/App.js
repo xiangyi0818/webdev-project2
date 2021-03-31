@@ -20,13 +20,13 @@ class App extends React.Component {
       numView:12,
       cardToRemove:[],
       hasRemove:0,
-      gameMode:1,
+      gameMode:undefined,
     };
   }
   addCard = (cardType) => {
-    console.log(cardType)
+    // console.log(cardType)
     this.props.dispatch({type:"AddCardToRemove", card:cardType})
-    console.log(this.props.cardToRemove)
+    // console.log(this.props.cardToRemove)
   }
   checkHasRemove=(toComplete) => {
     if (this.props.hasRemove !== 0){
