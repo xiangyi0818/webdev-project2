@@ -26,7 +26,7 @@ export default class Home extends React.Component {
       <div className="main-leftsidebar">
         <div className="button-container">
           <div className="main-button-container">
-            <button className="grab" className="button3"> <Link to={"/home"}><h2>Home</h2></Link></button>
+            <button className="grab" className="button1" className="active"> <Link to={"/home"}><h2>Home</h2></Link></button>
             <button className="grab" className="button1"> <Link to={"/"}><h2>Difficulty</h2></Link></button>
             <button className="grab" className="button1"> <Link to={"/rule"}><h2>Rule</h2></Link></button>
           </div>

@@ -17,6 +17,25 @@
   text-align: center;
 }
 
+
+.active {
+  border: none;
+  color: white;
+  padding: 5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+  background-color: rgb(230, 120, 31);
+
+}
+
+
 .button {
   background-color:rgba(209, 74, 74, 0.986);
   border: none;
